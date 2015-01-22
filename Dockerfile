@@ -1,4 +1,4 @@
-FROM        debian:wheezy
+FROM debian:wheezy
 
 MAINTAINER Bruno Binet <bruno.binet@helioslite.com>
 
