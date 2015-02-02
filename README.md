@@ -34,5 +34,5 @@ For example:
 
     $ docker run --name salt-minion \
         -v /home/salt-minion/config:/etc/salt \
-        --link salt-master:salt-master
+        --link salt-master:salt-master \
         bbinet/salt-minion
