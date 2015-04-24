@@ -10,9 +10,9 @@ ADD debian-salt-team-joehealy.gpg.key /tmp/debian-salt-team-joehealy.gpg.key
 RUN apt-key add /tmp/debian-salt-team-joehealy.gpg.key && \
   rm /tmp/debian-salt-team-joehealy.gpg.key
 
-ENV SALT_MINION_VERSION 2014.7.4+ds-1~bpo70+1
+ENV SALT_VERSION 2014.7.5+ds-1~bpo70+1
 RUN apt-get update && apt-get install -yq --no-install-recommends \
-  salt-minion=${SALT_MINION_VERSION} vim ssh net-tools procps && \
+  salt-minion=${SALT_VERSION} vim ssh net-tools procps && \
   rm -rf /var/lib/apt/lists/* && apt-get clean
 
 RUN rm /usr/sbin/policy-rc.d
