@@ -18,5 +18,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 RUN rm /usr/sbin/policy-rc.d
 
 VOLUME /etc/salt
+VOLUME /sys/fs/cgroup
 
-CMD ["/sbin/init", "2"]
+CMD ["/lib/systemd/systemd", "systemd.unit=multi-user.target"]
