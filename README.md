@@ -7,14 +7,14 @@ Salt-minion docker container (for testing purpose).
 Build
 -----
 
-To create the image `bbinet/salt-minion`, execute the following command in the
-`docker-salt-minion` folder:
+To create the image `bbinet/salt-minion:wheezy`, execute the following command
+in the `docker-salt-minion` folder:
 
-    docker build -t bbinet/salt-minion .
+    docker build -t bbinet/salt-minion:wheezy .
 
 You can now push the new image to the public registry:
     
-    docker push bbinet/salt-minion
+    docker push bbinet/salt-minion:wheezy
 
 
 Run
@@ -30,9 +30,9 @@ configuration and pki stuff from this `/etc/salt` volume.
 
 For example:
 
-    $ docker pull bbinet/salt-minion
+    $ docker pull bbinet/salt-minion:wheezy
 
     $ docker run --name salt-minion \
         -v /home/salt-minion/config:/etc/salt \
         --link salt-master:salt-master \
-        bbinet/salt-minion
+        bbinet/salt-minion:wheezy
