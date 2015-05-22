@@ -12,7 +12,7 @@ RUN apt-key add /tmp/debian-salt-team-joehealy.gpg.key && \
 
 ENV SALT_VERSION 2015.5.0+ds-1~bpo8+1
 RUN apt-get update && apt-get install -yq --no-install-recommends \
-  salt-minion=${SALT_VERSION} vim ssh less net-tools procps lsb-release && \
+  salt-minion=${SALT_VERSION} vim ssh less net-tools procps lsb-release ifupdown && \
   rm -rf /var/lib/apt/lists/* && apt-get clean
 
 RUN rm /usr/sbin/policy-rc.d
