@@ -10,7 +10,7 @@ ADD debian-salt-team-joehealy.gpg.key /tmp/debian-salt-team-joehealy.gpg.key
 RUN apt-key add /tmp/debian-salt-team-joehealy.gpg.key && \
   rm /tmp/debian-salt-team-joehealy.gpg.key
 
-ENV SALT_VERSION 2015.5.0+ds-1~bpo8+1
+ENV SALT_VERSION 2015.5.3+ds-1~bpo8+1
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   salt-minion=${SALT_VERSION} dbus vim ssh less net-tools procps lsb-release ifupdown
 
