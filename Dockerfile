@@ -15,8 +15,13 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   salt-minion=${SALT_VERSION} vim ssh less net-tools procps lsb-release ifupdown && \
   rm -rf /var/lib/apt/lists/* && apt-get clean
 
+ADD run.sh /run.sh
+RUN chmod a+x /run.sh
+
 RUN rm /usr/sbin/policy-rc.d
 
-VOLUME /etc/salt
+ENV SALT_CONFIG /etc/salt
+ENV BEFORE_EXEC_SCRIPT ${SALT_CONFIG}/before-exec.sh
+ENV EXEC_CMD /sbin/init 2
 
-CMD ["/sbin/init", "2"]
+CMD ["/run.sh"]
