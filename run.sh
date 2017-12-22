@@ -2,6 +2,8 @@
 
 set -m
 
+systemctl stop salt-minion
+
 # create salt minion keys from env variables
 if [ -n "${KEY_MINION_PRIV}" ]; then
     if [ -z "${KEY_MINION_PUB}" ] || [ -z "${KEY_MASTER_PUB}" ]; then
@@ -35,6 +37,8 @@ then
         abort "=> BEFORE_EXEC_SCRIPT [$BEFORE_EXEC_SCRIPT] has failed."
     fi
 fi
+
+systemctl start salt-minion
 
 echo "=> Running EXEC_CMD [$EXEC_CMD]..."
 exec $EXEC_CMD
