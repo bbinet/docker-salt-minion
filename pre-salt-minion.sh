@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Import our environment variables from systemd
+for e in $(tr "\000" "\n" < /proc/1/environ); do
+    eval "export $e"
+done
+
 # create salt minion keys from docker secrets
 if [ -f /run/secrets/minion.pem ] && [ -f /run/secrets/minion.pub ] && [ -f /run/secrets/master.pub ]
 then
