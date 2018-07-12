@@ -9,7 +9,7 @@ ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
 ENV SALT_VERSION 2017.7
-#ENV REFRESHED_AT 2018-03-01
+#ENV REFRESHED_AT 2018-07-12
 
 RUN echo "deb http://repo.saltstack.com/apt/debian/9/amd64/${SALT_VERSION} stretch main" > /etc/apt/sources.list.d/salt.list
 ADD https://repo.saltstack.com/apt/debian/9/amd64/${SALT_VERSION}/SALTSTACK-GPG-KEY.pub /tmp/SALTSTACK-GPG-KEY.pub
@@ -19,7 +19,7 @@ RUN apt-key add /tmp/SALTSTACK-GPG-KEY.pub
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     dbus vim ssh less net-tools procps lsb-release ifupdown \
     make git wget python2.7 python-apt apt-transport-https \
-    dnsmasq wireless-tools gnupg salt-minion \
+    python-concurrent.futures dnsmasq wireless-tools gnupg salt-minion \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN cp /lib/systemd/system/dbus.service /etc/systemd/system/; \
